@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+//this will be the feed-- see what people's SOTD
 class HomeViewController: UIViewController {
 
     override func viewDidLoad() {

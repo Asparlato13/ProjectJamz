@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  ProjectJamz
+//  JamzApp
 //
-//  Created by Adrianna Parlato on 3/8/23.
+//  Created by Adrianna Parlato on 10/11/22.
 //
 
 import UIKit
@@ -11,10 +11,31 @@ import CoreData
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+//add spotify api
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        
+        
+        if AuthManager.shared.isSignedIn {
+            AuthManager.shared.refreshIfNeeded(completion: nil)
+            window.rootViewController = TabBarViewController()}
+        else {
+            //the welcome screen
+            let navVC = UINavigationController(rootViewController: WelcomeViewController())
+            navVC.navigationBar.prefersLargeTitles = true
+            navVC.viewControllers.first?.navigationItem.largeTitleDisplayMode = .always
+            window.rootViewController = navVC
+          }
+        
+        window.makeKeyAndVisible()
+        self.window = window
+        
+        AuthManager.shared.refreshIfNeeded {success in
+            print(success)
+        }
+        
         return true
     }
 
@@ -41,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentContainer(name: "ProjectJamz")
+        let container = NSPersistentContainer(name: "JamzApp")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.

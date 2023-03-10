@@ -8,11 +8,18 @@
 import UIKit
 import SDWebImage
 
+// creates a cell with a single line of text and an optional icon image. The text label is positioned to the right of the icon image, and the cell has a disclosure indicator accessory type.
+
+// defines a custom table view cell subclass called SearchResultDefaultTableViewCell, which is used to display search results in a table view.
+
+//The cell has a static identifier property, which can be used to dequeue cells of this type from a table view.
+
+
 class SearchResultDefaultTableViewCell: UITableViewCell {
 
     static let identifier = "SearchResultDefaultTableViewCell"
     
-    
+    //The cell contains two subviews: a label and an image view. The label displays the search result's title, and the image view displays an icon or image associated with the search result.
     private let label: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
@@ -38,10 +45,11 @@ class SearchResultDefaultTableViewCell: UITableViewCell {
         fatalError()
     }
     
+    
+    
+    //The layoutSubviews() method lays out the subviews within the cell's content view. The image view is positioned in the top-left corner of the cell and is given a circular shape by setting its layer's cornerRadius property to half its height. The label is positioned to the right of the image view and takes up the remaining width of the cell's content view.
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-
         label.clipsToBounds.self
         imageView?.clipsToBounds.self
         let imageSize : CGFloat = contentView.frame.height-10
@@ -53,7 +61,7 @@ class SearchResultDefaultTableViewCell: UITableViewCell {
     
     
   
-    
+    //The prepareForReuse() method is called when a cell is about to be reused, and it resets the cell's state by setting the image view's image and the label's text to nil.
     override func prepareForReuse() {
         super.prepareForReuse()
         iconImageView.image = nil
@@ -62,7 +70,7 @@ class SearchResultDefaultTableViewCell: UITableViewCell {
     
     
     
-    
+    //the configure(with:) method is called to populate the cell's subviews with data from a view model. The view model contains a title and an image URL, which are used to set the text of the label and to download and set the image of the image view using the sd_setImage method provided by the SDWebImage library.
     func configure(with viewModel: SearchResultDefaultTableViewCellViewModel) {
         label.text = viewModel.title
         iconImageView.sd_setImage(with: viewModel.imageURL, completed: nil)

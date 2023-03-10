@@ -8,7 +8,9 @@
 import UIKit
 import SDWebImage
 
+// a reusable view that can be used as a header in a collection view cell and responds to user interaction through a delegate.---adjust the album/playlist/user info to fit screen
 
+//The PlaylistHeaderCollectionReusableView is a subclass of UICollectionReusableView that defines various UI elements for the header view, such as nameLabel, descriptionLabel, ownerLabel, imageView, and playAllButton. The playAllButton is a UIButton that when tapped, calls the didTapPlayAll method that in turn calls the PlaylistHeaderCollectionReusableViewDidTapPlayAll method on its delegate.
 protocol PlaylistHeaderCollectionReusableViewDelegate: AnyObject {
     func PlaylistHeaderCollectionReusableViewDidTapPlayAll(_ header: PlaylistHeaderCollectionReusableView)
 }
@@ -85,6 +87,8 @@ final class PlaylistHeaderCollectionReusableView: UICollectionReusableView {
         delegate?.PlaylistHeaderCollectionReusableViewDidTapPlayAll(self)
     }
     
+    
+    //The layoutSubviews method is called when the view's bounds change and sets the frames for all the UI elements based on the current frame size.
     override func layoutSubviews() {
         super.layoutSubviews()
         let imageSize: CGFloat = frame.height/1.8
@@ -98,6 +102,8 @@ final class PlaylistHeaderCollectionReusableView: UICollectionReusableView {
         playAllButton.frame = CGRect(x: frame.width-80, y: frame.height-80, width: 60, height: 60)
         
     }
+    
+    //The configure method is used to configure the UI elements of the header view with the data from a PlaylistHeaderViewViewModel.
     func configure(with viewModel: PlaylistHeaderViewViewModel) {
         nameLabel.text = viewModel.name
         ownerLabel.text = viewModel.ownerName

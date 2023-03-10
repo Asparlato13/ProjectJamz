@@ -8,7 +8,14 @@ import Foundation
 import UIKit
 
 
+//provides a UI for controlling a media player.
 
+//The view has a delegate playerControlsViewDelegate with four methods, which will be called when the user interacts with the view:
+
+//        playerControlsViewDidTapPlayPauseButton: called when the play/pause button is tapped.
+//        playerControlsViewDidTapNextButton: called when the next button is tapped.
+//        playerControlsViewDidTapBackButton: called when the back button is tapped.
+//        playerControlsView(_:didSlideSlider:): called when the user slides the volume slider.
 protocol playerControlsViewDelegate: AnyObject {
     func playerControlsViewDidTapPlayPauseButton(_ playerControlsView: PlayerControlsView )
     func playerControlsViewDidTapNextButton(_ playerControlsView: PlayerControlsView )
@@ -22,6 +29,15 @@ struct PlayerControlsViewModel {
     let subtitle: String?
 }
 
+
+//The view has several subviews:
+
+//        nameLabel: a label showing the title of the media.
+//        subtitleLabel: a label showing the subtitle of the media.
+//        volumeSlider: a slider that controls the volume.
+//        backButton: a button for skipping back to the previous track.
+//        nextButton: a button for skipping to the next track.
+//        playPauseButton: a button for playing or pausing the media.
 final class PlayerControlsView: UIView {
     
     private var isPlaying = true
@@ -129,7 +145,7 @@ final class PlayerControlsView: UIView {
         playPauseButton.setImage(isPlaying ? pause : play , for: .normal)
         
     }
-    
+    //the layoutSubviews method is used to position and size the subviews, and the configure method is used to set the title and subtitle of the media.
     override func layoutSubviews() {
         super.layoutSubviews()
         nameLabel.frame = CGRect(x: 0, y: 0, width: frame.width, height: 50)
@@ -144,6 +160,8 @@ final class PlayerControlsView: UIView {
         nextButton.frame = CGRect(x: playPauseButton.frame.minY+80, y: playPauseButton.frame.maxX, width: buttonSize, height: buttonSize)
     }
 
+    
+    //a PlayerControlsViewModel object which is used to configure the view with the media's title and subtitle
     func configure(with viewModel: PlayerControlsViewModel) {
         nameLabel.text = viewModel.title
         subtitleLabel.text = viewModel.subtitle

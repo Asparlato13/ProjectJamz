@@ -7,7 +7,7 @@
 import SafariServices
 import UIKit
 
-// defines a view controller that displays a collection of categories and allows the user to search for songs, artists, and albums AND USER PROFILE using a search bar. **MUST ADD PROFILE
+// defines a view controller that displays a collection of categories and allows the user to search for songs, artists, and albums AND **USER PROFILE** using a search bar. **MUST ADD PROFILE
 
 
 //The ExploreViewController class inherits from UIViewController and conforms to the UISearchResultsUpdating and UISearchBarDelegate protocols.

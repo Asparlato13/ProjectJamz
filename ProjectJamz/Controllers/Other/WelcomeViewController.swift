@@ -7,6 +7,10 @@
 
 import UIKit
 
+//the welcome page
+
+
+//The @IBOutlet declarations define outlets for four user interface elements: a UIImageView called logoImage, a UILabel called loveLabel, a UILabel called welcomeLabel, and a UIButton called loginButton.
 class WelcomeViewController: UIViewController {
 
     
@@ -20,6 +24,8 @@ class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     
+    
+    //The lazy var gradient declaration initializes a CAGradientLayer object with an array of four colors, which are used to create a gradient effect. The locations property specifies the position of each color in the gradient.
     lazy var gradient: CAGradientLayer = {
         let gradient = CAGradientLayer()
         gradient.colors = [ UIColor.systemPurple.cgColor,
@@ -36,6 +42,8 @@ class WelcomeViewController: UIViewController {
     
     
     
+    //In the viewDidLoad method, the gradient object is configured and added to the view's layer hierarchy, as a sublayer at index 0. The loginButton, logoImage, welcomeLabel, and loveLabel are then brought to the front of the view's subview hierarchy
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,6 +59,8 @@ class WelcomeViewController: UIViewController {
         
     }
     
+    
+    //The didTapSignInButton method is called when the user taps the loginButton. It creates an instance of AuthViewController and sets its completionHandler property to a closure that updates the user interface based on the success or failure of the authentication process. Then it configures the navigation bar and pushes the new view controller onto the navigation stack
 
     @IBAction func didTapSignInButton(_ sender: Any) {
         let vc = AuthViewController()
@@ -64,6 +74,8 @@ class WelcomeViewController: UIViewController {
         
         
     }
+    
+    //The handleSignIn method is called by the closure that's passed to AuthViewController. It either logs the user in or presents an error message, based on the value of the success parameter. If the authentication was successful, it presents a TabBarViewController modally.
     private func handleSignIn(success: Bool) {
         //log user in or output at them for error
         guard success else {

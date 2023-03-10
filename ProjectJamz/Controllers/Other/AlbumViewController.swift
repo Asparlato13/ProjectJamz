@@ -11,7 +11,8 @@ import UIKit
 class AlbumViewController: UIViewController {
 
     
-    //This creates a UICollectionView instance and configures it with a UICollectionViewCompositionalLayout, which defines the layout of the collection view. The layout is a vertical stack of groups of cells. Each group contains one cell that takes up the full width of the group and has a height of 60 points. The contentInsets property of the cell is set to add 1 point of space on the top and bottom, and 2 points of space on the left and right. The section of the collection view contains only one group and has a header that spans the full width of the collection view.
+    //This creates a UICollectionView instance and configures it with a UICollectionViewCompositionalLayout, which defines the layout of the collection view.
+        //The layout is a vertical stack of groups of cells. Each group contains one cell that takes up the full width of the group and has a height of 60 points. The contentInsets property of the cell is set to add 1 point of space on the top and bottom, and 2 points of space on the left and right.
     private let collectionView = UICollectionView(
         frame: .zero,
         collectionViewLayout: UICollectionViewCompositionalLayout(sectionProvider: { _, _ -> NSCollectionLayoutSection? in
@@ -33,6 +34,7 @@ class AlbumViewController: UIViewController {
             count: 1)
         
         //section
+          //  The section of the collection view contains only one group and has a header that spans the full width of the collection view.
             let section = NSCollectionLayoutSection(group: group)
             section.boundarySupplementaryItems = [NSCollectionLayoutBoundarySupplementaryItem(
                 layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),

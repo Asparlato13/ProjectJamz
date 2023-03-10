@@ -7,10 +7,16 @@
 
 import Foundation
 
+//an authentication manager for an iOS application that uses the Spotify API. It handles authentication and token management for the user's session
 
+
+
+//The AuthManager is a singleton class, which means there can only be one instance of it in the application, and it is globally accessible via the shared property.
 final class AuthManager {
     static let shared = AuthManager()
     
+    
+    //The class has several private properties and constants that are used to manage the authentication and token lifecycle, such as refreshingToken, accessToken, refreshToken, tokenExpirationDate, and shouldRefreshToken.
     private var refreshingToken = false
     
     struct Constants {
@@ -22,6 +28,8 @@ final class AuthManager {
     }
     
     private init() {}
+    
+    //The signInURL property is a computed property that returns the Spotify authorization URL, which the user can use to sign in to the application and authorize the app to access their Spotify data
     
     public var signInURL: URL? {
         
@@ -59,6 +67,8 @@ final class AuthManager {
        
     }
     
+    
+    //The exchangeCodeForToken method is used to exchange the authorization code received from the Spotify authorization server with an access token that can be used to make API calls. It sends a POST request to the Spotify token API with the authorization code and other parameters, and on success, it caches the token data in UserDefaults.
     public func exchangeCodeForToken(code: String, completion: @escaping((Bool) -> Void))
     {
     //get token
@@ -105,10 +115,12 @@ final class AuthManager {
         task.resume()
 }
     
+    //The onRefreshBlocks property is an array of completion handlers that are executed when the token is refreshed. It is used to automatically retry the API call that failed due to an expired token after the token is refreshed.
     private var onRefreshBlocks = [((String) -> Void)]()
     
     
     //Supplies valid token to be used with API Calls
+    //The withValidToken method is used to supply a valid access token to be used with API calls. If the token is expired, it automatically refreshes it if possible, and the new token is cached in UserDefaults. If the refresh fails, the completion handler is called with a false argument.
     public func withValidToken(completion: @escaping (String) -> Void) {
         guard !refreshingToken else {
             //append the completion
@@ -130,7 +142,7 @@ final class AuthManager {
     }
     
     
-    
+    //The refreshIfNeeded method is used to refresh the access token if it is expired. It sends a POST request to the Spotify token API with the refresh token and other parameters, and on success, it caches the new token data in UserDefaults. If the refresh fails, the completion handler is called with a false argument.
     public func refreshIfNeeded(completion: ((Bool) -> Void)?) {
         guard !refreshingToken else {
             return

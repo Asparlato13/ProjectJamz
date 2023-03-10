@@ -5,11 +5,11 @@
 //  Created by Adrianna Parlato on 10/11/22.
 //
 
-//Overall, this code sets up the basic structure and appearance of a tab bar interface with four tabs, each containing a navigation stack with a root view controller. The specific behavior and appearance of each view controller can be customized further by modifying the relevant classes.
+// a tab bar interface with four tabs, each containing a navigation stack with a root view controller.
 
 import UIKit
 
-//This code defines a custom UITabBarController subclass named TabBarViewController.
+// defines a custom UITabBarController subclass named TabBarViewController.
 class TabBarViewController: UITabBarController {
     //When an instance of TabBarViewController is loaded, it creates and configures four view controllers:                      HomeViewController, ExploreViewController, NotificationsViewController, and ProfileViewController.
     //Each of these view controllers is embedded in a UINavigationController instance.

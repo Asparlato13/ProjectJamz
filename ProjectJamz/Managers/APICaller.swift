@@ -49,9 +49,7 @@ final class APICaller {
                 }
     
         }
-    //
-    //
-    //
+    
         public func getCurrentUserAlbums(completion: @escaping (Result<[Album], Error>) -> Void) {
             createRequest(
                 with: URL(string: Constants.baseAPIURL + "/me/albums"),
@@ -584,10 +582,6 @@ final class APICaller {
                                 completion(request)
                             }
                      }
-    //
-    //
-//}
-    //
-    //
+   
 }
 

@@ -23,9 +23,7 @@ protocol SearchResultsViewControllerDelegate: AnyObject {
 
 //The SearchResultsViewController has a sections property that is an array of SearchSection objects, where each section has a title and an array of SearchResult objects.
 
-//he SearchResultsViewController conforms to the UITableViewDelegate and UITableViewDataSource protocols and implements their required methods. The numberOfSections(in:) method returns the number of sections in the sections property. The tableView(_:numberOfRowsInSection:) method returns the number of rows in a given section.
-
-
+//he SearchResultsViewController conforms to the UITableViewDelegate and UITableViewDataSource protocols and implements their required methods.
 class SearchResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     weak var delegate: SearchResultsViewControllerDelegate?
@@ -103,6 +101,10 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         
     }
     
+    
+  //  The numberOfSections(in:) method returns the number of sections in the sections property. The tableView(_:numberOfRowsInSection:) method returns the number of rows in a given section.
+
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }

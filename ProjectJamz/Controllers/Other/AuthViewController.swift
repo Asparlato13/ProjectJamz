@@ -6,7 +6,7 @@
 //
 
 
-//This code defines an AuthViewController class, which is a UIViewController that displays a WKWebView. The purpose of this view controller is to allow the user to sign in to an external service (SPOTIFY) by showing a web page where the user can enter their credentials.
+// defines an AuthViewController class, which is a UIViewController that displays a WKWebView. The purpose is to allow the user to sign in to an external service (SPOTIFY) by showing a web page where the user can enter their credentials.
 
 import UIKit
 import WebKit
@@ -49,8 +49,7 @@ class AuthViewController: UIViewController, WKNavigationDelegate  {
    
     
     
-    //In the webView(_:didStartProvisionalNavigation:) method, the view controller handles the user signing in. When the user successfully signs in, the external service will redirect the web page to a URL that contains a query parameter called code, which contains an authorization code.
-    //The view controller extracts this code and passes it to the AuthManager's exchangeCodeForToken method, which exchanges the authorization code for an access token.
+    //In the webView(_:didStartProvisionalNavigation:) method, the view controller handles the user signing in. When the user successfully signs in, the external service will redirect the web page to a URL that contains a query parameter called code, which contains an authorization code. The view controller extracts this code and passes it to the AuthManager's exchangeCodeForToken method, which exchanges the authorization code for an access token.
                 //If the exchange is successful, the view controller dismisses itself and shows a TabBarViewController, which is the main view controller of the app.
                 //If the exchange is not successful, the view controller dismisses itself and returns the failure to the completionHandler closure.
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {

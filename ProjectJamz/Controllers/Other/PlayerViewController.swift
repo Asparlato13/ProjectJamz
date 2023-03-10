@@ -9,11 +9,6 @@ import UIKit
 import SDWebImage
 
 //a view controller that shows a player interface for playing audio.
-
-
-
-
-
 protocol PlayerViewControllerDelegate: AnyObject {
     func didTapPlayPause()
     func didTapNext()
@@ -22,12 +17,11 @@ protocol PlayerViewControllerDelegate: AnyObject {
 }
 
 
-// a delegate protocol called PlayerViewControllerDelegate with several methods that can be used to control playback,
-
+// a delegate protocol called PlayerViewControllerDelegate with several methods that can be used to control playback
 
 class PlayerViewController: UIViewController {
     
-    //and a property called dataSource which provides data for the view controller to display.
+    //a property called dataSource which provides data for the view controller to display.
     weak var dataSource: PlayerDataSource?
     weak var delegate: PlayerViewControllerDelegate?
 
@@ -92,7 +86,7 @@ class PlayerViewController: UIViewController {
             subtitle: dataSource?.subtitle))
     }
     
-    //buttons for closing presenting page in  top right corner
+    //buttons for closing presenting page in top right corner
     //The configureBarButtons method sets up the left and right bar button items for the view controller's navigation bar.
     private func configureBarButtons() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(didTapClose))

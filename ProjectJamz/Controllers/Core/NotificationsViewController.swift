@@ -11,10 +11,6 @@ class NotificationsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // NOTIFICATION
     }
     
-
-
 }

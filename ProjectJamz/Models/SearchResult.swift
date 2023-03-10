@@ -12,4 +12,5 @@ enum SearchResult {
     case album(model: Album)
     case track(model: AudioTrack)
     case playlist(model: Playlist)
+    case profile(model: UserProfile)
 }

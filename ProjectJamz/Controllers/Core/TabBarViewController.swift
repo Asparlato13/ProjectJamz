@@ -20,7 +20,7 @@ class TabBarViewController: UITabBarController {
         let vc1 = HomeViewController()
         let vc2 = ExploreViewController()
         let vc3 = NotificationsViewController()
-        let vc4 = ProfileViewController()
+        let vc4 = AccountViewController()
         
 //   sets the title and navigationItem.largeTitleDisplayMode properties of each view controller to specify the title of the tab and whether the title should be displayed in a large title area at the top of the navigation bar.
         

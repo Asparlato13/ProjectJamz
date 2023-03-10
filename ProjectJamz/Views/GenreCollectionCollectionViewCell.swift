@@ -48,14 +48,11 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         .systemYellow,
         .systemRed,
         .systemTeal,
-        .systemGray
         
     ]
     
     
     //The CategoryCollectionViewCell overrides the following methods:
-    
- 
 
     
     //   init(frame:): Initializes the cell's view hierarchy, sets the content view's corner radius, and adds the label and image view as subviews of the cell's content view.

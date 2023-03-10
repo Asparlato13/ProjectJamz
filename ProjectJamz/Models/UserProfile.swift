@@ -16,6 +16,9 @@ struct UserProfile: Codable {
     let id: String
     let product: String
     let images: [APIImage]
+    let name: String
+    let owner: User
+
 
     
 }

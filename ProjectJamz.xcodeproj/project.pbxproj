@@ -72,6 +72,7 @@
 		12EE321D29B90A2300BB9C1D /* RecommendationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EE31DE29B90A2200BB9C1D /* RecommendationResponse.swift */; };
 		12EE322029B90A6900BB9C1D /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 12EE321F29B90A6900BB9C1D /* SDWebImage */; };
 		12EE322229B90A6900BB9C1D /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 12EE322129B90A6900BB9C1D /* SDWebImageMapKit */; };
+		12EE322429BBAF2100BB9C1D /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EE322329BBAF2100BB9C1D /* AccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +141,7 @@
 		12EE31DC29B90A2200BB9C1D /* AlbumDetailResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumDetailResponse.swift; sourceTree = "<group>"; };
 		12EE31DD29B90A2200BB9C1D /* AuthResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		12EE31DE29B90A2200BB9C1D /* RecommendationResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationResponse.swift; sourceTree = "<group>"; };
+		12EE322329BBAF2100BB9C1D /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +295,7 @@
 				12EE31BF29B90A2200BB9C1D /* TabBarViewController.swift */,
 				12EE31C029B90A2200BB9C1D /* ProfileViewController.swift */,
 				12EE31C129B90A2200BB9C1D /* NotificationsViewController.swift */,
+				12EE322329BBAF2100BB9C1D /* AccountViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				12EE31EE29B90A2300BB9C1D /* AlbumCollectionViewCellViewModel.swift in Sources */,
 				12EE321229B90A2300BB9C1D /* AllCategoriesResponse.swift in Sources */,
 				12EE321829B90A2300BB9C1D /* Playlist.swift in Sources */,
+				12EE322429BBAF2100BB9C1D /* AccountViewController.swift in Sources */,
 				12EE321A29B90A2300BB9C1D /* AudioTrack.swift in Sources */,
 				12EE320F29B90A2300BB9C1D /* NewReleaseResponse.swift in Sources */,
 				12EE320629B90A2300BB9C1D /* WelcomeViewController.swift in Sources */,

@@ -77,22 +77,23 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
             switch $0 {
             case .playlist: return true
             default: return false
-//        let userID = results.filter( {
-//            switch $0 {
-//            case .userID: return true
-//            default: return false
-//
-//                    }
-            
-        }})
+            }}
+            )
+        let profiles = results.filter( {
+            switch $0 {
+            case .profile: return true
+            default: return false
+            }}
+            )
+      
        
         
         self.sections = [
         SearchSection(title: "Songs", results: tracks),
         SearchSection(title: "Artists", results: artists),
         SearchSection(title: "Playlists", results: playlists),
-        SearchSection(title: "Albums", results: albums)]
-      //  SearchSection(title: "User Profile", results: userID)]
+        SearchSection(title: "Albums", results: albums),
+        SearchSection(title: "User Profiles", results: profiles)]
         
         
         tableView.reloadData()
@@ -118,7 +119,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         switch result {
         case .artists(let artist):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultDefaultTableViewCell.identifier, for: indexPath) as? SearchResultDefaultTableViewCell else {
-                    return UITableViewCell()
+                return UITableViewCell()
             }
             let viewModel = SearchResultDefaultTableViewCellViewModel(
                 title: artist.name,
@@ -129,7 +130,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         case .album(let album):
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultSubtitleTableViewCell.identifier, for: indexPath) as? SearchResultSubtitleTableViewCell else {
-                    return UITableViewCell()
+                return UITableViewCell()
             }
             let viewModel = SearchResultSubtitleTableViewCellViewModel(
                 title: album.name,
@@ -139,7 +140,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
             return cell
         case .track(let track):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultSubtitleTableViewCell.identifier, for: indexPath) as? SearchResultSubtitleTableViewCell else {
-                    return UITableViewCell()
+                return UITableViewCell()
             }
             let viewModel = SearchResultSubtitleTableViewCellViewModel(
                 title: track.name,
@@ -149,7 +150,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
             return cell
         case .playlist(let playlist):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultSubtitleTableViewCell.identifier, for: indexPath) as? SearchResultSubtitleTableViewCell else {
-                    return UITableViewCell()
+                return UITableViewCell()
             }
             let viewModel = SearchResultSubtitleTableViewCellViewModel(
                 title: playlist.name,
@@ -157,19 +158,17 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
                 imageURL: URL(string: playlist.images.first?.url ?? ""))
             cell.configure(with: viewModel)
             return cell
-            
-//
-//        case .userID(let userID):
-//            guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultSubtitleTableViewCell.identifier, for: indexPath) as? SearchResultSubtitleTableViewCell else {
-//                    return UITableViewCell()
-//            }
-//            let viewModel = SearchResultSubtitleTableViewCellViewModel(
-//                title: userID.name,
-//                subtitle: userID.owner.display_name,
-//                imageURL: URL(string: userID.images.first?.url ?? ""))
-//            cell.configure(with: viewModel)
-//            return cell
-//
+        case .profile(let profile):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultSubtitleTableViewCell.identifier, for: indexPath) as? SearchResultSubtitleTableViewCell else {
+                    return UITableViewCell()
+            }
+            let viewModel = SearchResultSubtitleTableViewCellViewModel(
+                title: profile.name,
+                subtitle: profile.owner.display_name,
+                imageURL: URL(string: profile.images.first?.url ?? ""))
+            cell.configure(with: viewModel)
+            return cell
+
             
             
         }
@@ -181,8 +180,6 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.deselectRow(at: indexPath, animated: true)
         let result = sections[indexPath.section].results[indexPath.row]
         delegate?.didTapResults(result)
-        
-            
         
     }
     

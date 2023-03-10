@@ -20,7 +20,7 @@ class ExploreViewController: UIViewController, UISearchResultsUpdating, UISearch
         
         let vc = UISearchController(searchResultsController: SearchResultsViewController())
        //must add user profile too
-        vc.searchBar.placeholder = "Songs, Artists, Albums"
+        vc.searchBar.placeholder = "Songs, Artists, Albums, User Profile"
         vc.searchBar.searchBarStyle = .minimal
         vc.definesPresentationContext = true
         
@@ -136,9 +136,9 @@ extension ExploreViewController: SearchResultsViewControllerDelegate {
             let vc = PlaylistViewController(playlist: model)
             vc.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(vc, animated: true)
-//        case .userID(model: let model):
-//            let vc = ProfileViewController(playlist: model)
-//            navigationController?.pushViewController(vc, animated: true)
+        case .profile(model: let model):
+            let vc = ProfileViewController(profile: model)
+            navigationController?.pushViewController(vc, animated: true)
 //
         }
 //

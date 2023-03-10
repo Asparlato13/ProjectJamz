@@ -139,17 +139,8 @@ extension ExploreViewController: SearchResultsViewControllerDelegate {
         case .profile(model: let model):
             let vc = ProfileViewController(profile: model)
             navigationController?.pushViewController(vc, animated: true)
-//
+              
         }
-//
-//        case .userID(let model):
-//            let vc = ProfileViewController(userID: model)
-//
-//            //URL(string: model.external_urls["user_id"] ?? "")
-//
-//                // ProfileViewController(userID: model)
-//                vc.navigationItem.largeTitleDisplayMode = .never
-//                navigationController?.pushViewController(vc, animated: true)
       
             
         }

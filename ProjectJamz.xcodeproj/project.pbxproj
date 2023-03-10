@@ -73,6 +73,7 @@
 		12EE322029B90A6900BB9C1D /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 12EE321F29B90A6900BB9C1D /* SDWebImage */; };
 		12EE322229B90A6900BB9C1D /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 12EE322129B90A6900BB9C1D /* SDWebImageMapKit */; };
 		12EE322429BBAF2100BB9C1D /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EE322329BBAF2100BB9C1D /* AccountViewController.swift */; };
+		12EE322629BBCACE00BB9C1D /* UserProfileSearchResultResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EE322529BBCACE00BB9C1D /* UserProfileSearchResultResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,6 +143,7 @@
 		12EE31DD29B90A2200BB9C1D /* AuthResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		12EE31DE29B90A2200BB9C1D /* RecommendationResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationResponse.swift; sourceTree = "<group>"; };
 		12EE322329BBAF2100BB9C1D /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		12EE322529BBCACE00BB9C1D /* UserProfileSearchResultResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileSearchResultResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,7 +295,6 @@
 				12EE31BD29B90A2200BB9C1D /* ExploreViewController.swift */,
 				12EE31BE29B90A2200BB9C1D /* HomeViewController.swift */,
 				12EE31BF29B90A2200BB9C1D /* TabBarViewController.swift */,
-				12EE31C029B90A2200BB9C1D /* ProfileViewController.swift */,
 				12EE31C129B90A2200BB9C1D /* NotificationsViewController.swift */,
 				12EE322329BBAF2100BB9C1D /* AccountViewController.swift */,
 			);
@@ -304,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				12EE31C329B90A2200BB9C1D /* AuthViewController.swift */,
+				12EE31C029B90A2200BB9C1D /* ProfileViewController.swift */,
 				12EE31C429B90A2200BB9C1D /* SearchResultsViewController.swift */,
 				12EE31C529B90A2200BB9C1D /* PlayerViewController.swift */,
 				12EE31C629B90A2200BB9C1D /* WelcomeViewController.swift */,
@@ -337,6 +339,7 @@
 				12EE31DC29B90A2200BB9C1D /* AlbumDetailResponse.swift */,
 				12EE31DD29B90A2200BB9C1D /* AuthResponse.swift */,
 				12EE31DE29B90A2200BB9C1D /* RecommendationResponse.swift */,
+				12EE322529BBCACE00BB9C1D /* UserProfileSearchResultResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				12EE31E429B90A2300BB9C1D /* HapticsManger.swift in Sources */,
 				12EE31E829B90A2300BB9C1D /* FeaturedPlaylistCellViewModel.swift in Sources */,
 				12EE321629B90A2300BB9C1D /* Artist.swift in Sources */,
+				12EE322629BBCACE00BB9C1D /* UserProfileSearchResultResponse.swift in Sources */,
 				12EE31FB29B90A2300BB9C1D /* NewReleasesCollectionViewCell.swift in Sources */,
 				12EE31E529B90A2300BB9C1D /* APICaller.swift in Sources */,
 				12EE31E929B90A2300BB9C1D /* NewReleaseCellViewModel.swift in Sources */,

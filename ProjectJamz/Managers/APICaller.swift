@@ -330,7 +330,11 @@ final class APICaller {
                                         return
                                     }
                                     do {
+                                        
+//                                        let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+//                                                          print(json)
                                         let result = try JSONDecoder().decode(UserProfile.self, from: data)
+                                      
                                         completion(.success(result))
                                     }
                                     catch {
@@ -361,8 +365,11 @@ final class APICaller {
                     return
                 }
                 do {
+//                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+//                     print(json)
                     let decoder = JSONDecoder()
                     let result = try decoder.decode(UserProfile.self, from: data)
+
                     completion(.success(result))
                 } catch {
                     print(error.localizedDescription)
@@ -385,6 +392,7 @@ final class APICaller {
                     let decoder = JSONDecoder()
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
                     let result = try decoder.decode(UserProfileSearchResultResponse.self, from: data)
+                    print(result)
                     completion(.success(result.users))
                 } catch {
                     print(error.localizedDescription)
@@ -406,65 +414,6 @@ final class APICaller {
     
     
     
-//
-//    public func getUserProfiles(userID: String, completion: @escaping (Result<UserProfile, Error>) -> Void) {
-//        let urlString = Constants.baseAPIURL + "/users/{user_id}"
-//        createRequest(with: URL(string: urlString), type: .GET) { baseRequest in
-//            let task = URLSession.shared.dataTask(with: baseRequest) { data, _, error in
-//                guard let data = data, error == nil else {
-//                    completion(.failure(APIError.failedToGetData))
-//                    return
-//                }
-//                do {
-//                    let decoder = JSONDecoder()
-//                    let result = try decoder.decode(UserProfile.self, from: data)
-//                    completion(.success(result))
-//                } catch {
-//                    print(error.localizedDescription)
-//                    completion(.failure(error))
-//                }
-//            }
-//            task.resume()
-//        }
-//    }
-
-//    public func getUserProfiles(completion:  @escaping (Result<UserProfile, Error>) -> Void) {
-//        createRequest(
-//            with: URL(string: Constants.baseAPIURL + "/users/{user_id}"),
-//            type: .GET) { baseRequest in
-//                let task = URLSession.shared.dataTask(with: baseRequest) { data, _, error in
-//                    guard let data = data, error == nil else {
-//                        completion(.failure(APIError.failedToGetData))
-//                        return
-//                    }
-//                    do {
-////// let result = try JSONDecoder().decode(UserProfile.self, from: data)
-//                    //                        let json = try JSONDecoder().decode(UserProfile.self, from: data)
-//                    ////                        completion(.success(result))
-//                    //                        json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-//                    //                        print(json)
-//
-//                       //    let result = try JSONDecoder().decode(UserProfile.self, from: data)
-//
-//
-//
-//                          let result = try JSONSerialization.jsonObject(with: data,
-//                             options: .allowFragments)
-//                           print(result)
-//                        completion(.success(result as! UserProfile))
-//                        //   print(json)
-//                    }
-//                    catch {
-//                        print(error.localizedDescription)
-//                        completion(.failure(error))
-//                    }
-//                }
-//
-//                task.resume()
-//            }
-//
-//    }
-
 
     
     //                //MARK: Browse
@@ -653,20 +602,23 @@ final class APICaller {
                                     return
                                 }
                                 do {
+//                                  let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+//                                     print(json)
+                                    
                                     let result = try JSONDecoder().decode(SearchResultsResponse.self, from: data)
-                                    //one type the enecapsulates alll search results
+                                  //  one type the enecapsulates alll search results
                                     var searchResults: [SearchResult] = []
-    
+
                                     searchResults.append(contentsOf: result.tracks.items.compactMap({ .track(model: $0) }))
                                     searchResults.append(contentsOf: result.albums.items.compactMap({ .album(model: $0) }))
                                     searchResults.append(contentsOf: result.artists.items.compactMap({ .artists(model: $0) }))
                                     searchResults.append(contentsOf: result.playlists.items.compactMap({ .playlist(model: $0) }))
-//                                    searchResults.append(contentsOf: result.profiles.items.compactMap({ .profile(model: $0) }))
+//                                    searchResults.append(contentsOf: result.profile.items.compactMap({ .profile(model: $0) }))
                                     completion(.success(searchResults))
     
-                                    // completion(.success(result))
-                                    // let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                                    //  print(json)
+                                  //   completion(.success(result))
+//                                     let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+//                                      print(json)
                                 }
                                 catch {
                                     print(error.localizedDescription)

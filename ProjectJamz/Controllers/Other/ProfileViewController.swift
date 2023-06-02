@@ -48,6 +48,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.dataSource = self
         view.addSubview(tableView)
         fetchProfile()
+        //print(fetchProfile())
         view.backgroundColor = .systemBackground
     }
         
@@ -64,6 +65,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 switch result {
                 case .success(let model):
                     self?.updateUI(with: model)
+               
                 case .failure(let error):
                     print("Profile Error: \(error.localizedDescription)")
                     self?.failedToGetProfile()

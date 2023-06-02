@@ -79,12 +79,12 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
             default: return false
             }}
             )
-        let profiles = results.filter( {
-            switch $0 {
-            case .profile: return true
-            default: return false
-            }}
-            )
+//        let profiles = results.filter( {
+//            switch $0 {
+//            case .profile: return true
+//            default: return false
+//            }}
+//            )
       
        
         
@@ -93,7 +93,8 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         SearchSection(title: "Artists", results: artists),
         SearchSection(title: "Playlists", results: playlists),
         SearchSection(title: "Albums", results: albums),
-        SearchSection(title: "User Profiles", results: profiles)]
+     //   SearchSection(title: "User Profiles", results: profiles)
+        ]
         
         
         tableView.reloadData()

@@ -14,7 +14,7 @@ struct SearchResultsResponse: Codable {
     let artists: SearchArtistsResponse
     let playlists: SearchPlaylistsResponse
     let tracks: SearchTracksResponse
-//    let profiles: SearchProfilesResponse
+//   let profiles: SearchProfilesResponse
 //    let users: SearchUserResponse
 }
 

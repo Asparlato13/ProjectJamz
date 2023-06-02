@@ -20,7 +20,7 @@ class ExploreViewController: UIViewController, UISearchResultsUpdating, UISearch
         
         let vc = UISearchController(searchResultsController: SearchResultsViewController())
        //must add user profile too
-        vc.searchBar.placeholder = "Songs, Artists, Albums, User Profile"
+        vc.searchBar.placeholder = "Songs, Artists, Playlists, Albums"
         vc.searchBar.searchBarStyle = .minimal
         vc.definesPresentationContext = true
         
@@ -112,7 +112,7 @@ class ExploreViewController: UIViewController, UISearchResultsUpdating, UISearch
 
 extension ExploreViewController: SearchResultsViewControllerDelegate {
     
-    //The didTapResults method is called when the user taps on a search result in the search results view controller. It opens a Safari view controller to display the artist's page on Spotify OR pushes a new view controller to display an album or playlist.
+    //The didTapResults method is called when the user taps on a search result in the search results view controller. It opens a Safari view controller to display the artist's page on Spotify OR pushes a new view controller to display an album, playlist or user profile
     func didTapResults(_ result: SearchResult) {
         switch result {
         case .artists(let model):
@@ -136,12 +136,13 @@ extension ExploreViewController: SearchResultsViewControllerDelegate {
             let vc = PlaylistViewController(playlist: model)
             vc.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(vc, animated: true)
-        case .profile(model: let model):
-            let vc = ProfileViewController(profile: model)
-            navigationController?.pushViewController(vc, animated: true)
-              
+                    case .profile(let model):
+                        let vc = ProfileViewController(profile: model)
+                        vc.navigationItem.largeTitleDisplayMode = .never
+                        navigationController?.pushViewController(vc, animated: true)
+            
+            
         }
-      
             
         }
             

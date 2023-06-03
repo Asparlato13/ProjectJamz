@@ -9,6 +9,8 @@ import UIKit
 import CoreData
 
 //test01
+
+//tesitng 05
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
